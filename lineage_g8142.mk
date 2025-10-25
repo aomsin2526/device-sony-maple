@@ -12,15 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-TARGET_KERNEL_CONFIG := aosp_yoshino_maple_defconfig
+# DualSim
+PRODUCT_DEVICE_DS := true
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.telephony.default_network=9,1
 
 # Inherit from those products. Most specific first.
-$(call inherit-product, device/sony/maple/device.mk)
-$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+$(call inherit-product, device/sony/maple/lineage_g8141.mk)
 
-PRODUCT_NAME := aosp_g8141
+PRODUCT_NAME := lineage_g8142
 PRODUCT_DEVICE := maple
-PRODUCT_MODEL := Xperia XZ Premium (AOSP)
+PRODUCT_MODEL := Xperia XZ Premium Dual (AOSP)
 PRODUCT_BRAND := Sony
 PRODUCT_MANUFACTURER := Sony
